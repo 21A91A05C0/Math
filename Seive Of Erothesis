@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+void generateseive(vector<int>&seive)
+{
+    seive[0]=0;
+    seive[1]=0;
+    for(int i=2;i*i<=1e6+1;i++)
+    {
+        if(seive[i]==1)
+        {
+            for(int j=i*i;j<1e6+1;j+=i)
+            {
+                seive[j]=0;
+            }
+        }
+    }
+}
+int main()
+{
+    vector<int>seive(1e6+1,1);
+    generateseive(seive);
+}
